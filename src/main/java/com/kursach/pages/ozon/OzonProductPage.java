@@ -10,7 +10,7 @@ import java.util.List;
 
 public class OzonProductPage extends BasePage {
 
-    @FindBy(xpath = "//button[contains(@class, 'n0k_27') and contains(@class, 'b214-a0')]")
+    @FindBy(xpath = "//*[@id='layoutPage']/div[1]/div[4]/div[3]/div[2]/div[2]/div[1]/button")
     private WebElement addToCartButton;
 
     @FindBy(xpath = "//button[contains(@class, 'n0k_27') and contains(@class, 'b214-a0') and .//span[contains(text(), 'В корзине')]]")
@@ -21,7 +21,7 @@ public class OzonProductPage extends BasePage {
     @FindBy(xpath = "//div[@favorite-test-id='add-and-delete-item-in-favorites']//button[contains(@class, 'b8m_4_6')]")
     private List<WebElement> buttonList;
 
-    @FindBy(xpath = "//button[contains(@class, 'df_9') and contains(@class, 'b214-a0') and contains(@class, 'b214-b5') and contains(@class, 'b214-a4')]")
+    @FindBy(xpath = "//button[@class='fd1_9 b214-a0 b214-b5 b214-a4' and .//div[text()='ОК']]")
     private WebElement closeCookies;
 
     @FindBy(xpath = "//section[@data-widget='emptyState' and @class='ie2_10']")

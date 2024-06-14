@@ -6,11 +6,26 @@ import org.junit.jupiter.api.Test;
 public class OzonTests extends BaseTests4Lab4 {
 
     @Test
-    public void tests(){
+    public void testCase(){
         pageManager.getOzonHomePage()
                 .inputDataField("ноутбук")
                 .searchProduct()
-                .checkPage()
+                .checkPage();
+    }
+
+    @Test
+    public void testCase2(){
+        pageManager.getOzonHomePage()
+                .inputDataField("ноутбук")
+                .searchProduct();
+
+    }
+
+    @Test
+    public void testCase3(){
+        pageManager.getOzonHomePage()
+                .inputDataField("ноутбук")
+                .searchProduct()
                 .selectProduct()
                 .favoritProducts()
                 .motionProductPage()
@@ -19,5 +34,8 @@ public class OzonTests extends BaseTests4Lab4 {
                 .basketPage()
                 .clickSecondButton()
                 .deleteInBasket();
+
+
+
     }
 }

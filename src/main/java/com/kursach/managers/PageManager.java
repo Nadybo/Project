@@ -76,7 +76,6 @@ public class PageManager {
         return ozonProductPage;
     }
 
-
     public OzonProductSearch getOzonProductSearch(){
         if (ozonProductSearch == null){
             ozonProductSearch = new OzonProductSearch();

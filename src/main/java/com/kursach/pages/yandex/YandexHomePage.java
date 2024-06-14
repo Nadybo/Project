@@ -22,7 +22,7 @@ public class YandexHomePage extends BasePage {
     }
     public YandexHomePage slectCategory(){
         waitUtilElementToBeVisible(linkNounbooks);
-        actions.moveToElement(linkNounbooks).perform();
+        action.moveToElement(linkNounbooks).perform();
         return pageManager.getYandexPage();
     }
     public catalogPlanshety TablesPage(){

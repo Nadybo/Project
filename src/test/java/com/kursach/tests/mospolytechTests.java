@@ -11,6 +11,6 @@ public class mospolytechTests extends BaseTests {
                 .selectSchedule()
                 .motionNextPage()
                 .clearfield("221-361")
-                .selectGroup();
+                .checkClickSearchForGroup();
     }
 }
