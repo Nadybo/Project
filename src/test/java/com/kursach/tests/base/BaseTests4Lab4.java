@@ -24,6 +24,7 @@ public class BaseTests4Lab4 {
         driverManager.getDriver().get(testPropManager.getProperty(PropsConst.OZON_URL));
     }
 
+
 //    @AfterEach
 //    public void tearDown() {
 //        InitManager.quitFramework();

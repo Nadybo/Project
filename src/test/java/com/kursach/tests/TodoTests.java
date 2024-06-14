@@ -15,7 +15,7 @@ public class TodoTests extends BaseTests4Lab1 {
         .checkRemainingText("4 of 5 remaining")
         .clickItemCheckbox()
         .checkRemainingText("0 of 5 remaining")
-        .addNewItem("salom")
+        .addNewItem("6th checkbox")
         .checkRemainingText("1 of 6 remaining")
         .clickLastItem();
     }

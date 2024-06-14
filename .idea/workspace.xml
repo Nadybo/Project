@@ -4,34 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dfdc75d-669a-4ac2-85c2-b62655aadd4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/InitManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/PageManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/TestPropManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/OzonTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/YandexTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/mospolytechTests.java" afterDir="false" />
+    <list default="true" id="8dfdc75d-669a-4ac2-85c2-b62655aadd4a" name="Changes" comment="version 2.1">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Allure.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/pages/TodoPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/LambdaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/OzonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/OzonTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/mospolytechTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/mospolytechTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +41,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="OzonTests" />
+    </enabled-run-configurations>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -61,6 +59,9 @@
   "keyToString": {
     "JUnit.LambdaTest.testPageHeader.executor": "Run",
     "JUnit.OzonTests.executor": "Run",
+    "JUnit.OzonTests.testCase.executor": "Run",
+    "JUnit.OzonTests.testCase2.executor": "Run",
+    "JUnit.OzonTests.testCase3.executor": "Run",
     "JUnit.OzonTests.tests.executor": "Run",
     "JUnit.TodoTests.addNewItem.executor": "Run",
     "JUnit.TodoTests.clickCheckbox.executor": "Run",
@@ -76,14 +77,35 @@
     "JUnit.mospolytechTests.lab2Tests.executor": "Run",
     "JUnit.mospolytechTests.tests.executor": "Run",
     "JUnit.mospolytechTests.tests3.executor": "Run",
+    "Maven.kursach2024-2 [allure:report].executor": "Run",
+    "Maven.kursach2024-2 [clean,test,allure:report].executor": "Run",
+    "Maven.kursach2024-2 [clean].executor": "Run",
+    "Maven.kursach2024-2 [test,clean].executor": "Run",
+    "Maven.kursach2024-2 [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/kursach2024-2"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.mospolytechTests">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\kursach2024-2\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean test allure:report" />
+      <command value="mvn allure:report" />
+      <command value="mvn test clean" />
+      <command value="mvn clean" />
+      <command value="mvn test" />
+      <command value="mvn allure:report  " />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.YandexTests">
     <configuration name="OzonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kursach2024-2" />
       <extension name="coverage">
@@ -99,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OzonTests.tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OzonTests.testCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kursach2024-2" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +131,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.kursach.tests" />
       <option name="MAIN_CLASS_NAME" value="com.kursach.tests.OzonTests" />
-      <option name="METHOD_NAME" value="tests" />
+      <option name="METHOD_NAME" value="testCase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OzonTests.testCase3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kursach2024-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kursach.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kursach.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.OzonTests" />
+      <option name="METHOD_NAME" value="testCase3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -130,7 +168,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mospolytechTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="YandexTests.Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kursach2024-2" />
       <extension name="coverage">
         <pattern>
@@ -139,22 +177,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.kursach.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.mospolytechTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="mospolytechTests.Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kursach2024-2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kursach.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kursach.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.mospolytechTests" />
+      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.YandexTests" />
       <option name="METHOD_NAME" value="Tests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -163,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.mospolytechTests" />
-        <item itemvalue="JUnit.mospolytechTests.Tests" />
-        <item itemvalue="JUnit.OzonTests" />
-        <item itemvalue="JUnit.OzonTests.tests" />
         <item itemvalue="JUnit.YandexTests" />
+        <item itemvalue="JUnit.OzonTests.testCase3" />
+        <item itemvalue="JUnit.YandexTests.Tests" />
+        <item itemvalue="JUnit.OzonTests.testCase" />
+        <item itemvalue="JUnit.OzonTests" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +203,33 @@
       <option name="presentableId" value="Default" />
       <updated>1718083913580</updated>
     </task>
+    <task id="LOCAL-00001" summary="version 2.0">
+      <option name="closed" value="true" />
+      <created>1718297574024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718297574024</updated>
+    </task>
+    <task id="LOCAL-00002" summary="version 2.1">
+      <option name="closed" value="true" />
+      <created>1718382039924</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718382039924</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="version 2.0" />
+    <MESSAGE value="version 2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 2.1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kursach2024_2$OzonTests.ic" NAME="OzonTests Coverage Results" MODIFIED="1718299977871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.kursach.tests.*</FILTER>
+    </SUITE>
   </component>
 </project>

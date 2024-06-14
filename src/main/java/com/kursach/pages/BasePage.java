@@ -10,23 +10,31 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.logging.Logger;
 
 public class BasePage {
     protected DriverManager driverManager = DriverManager.getInstance();
-    protected WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(50),Duration.ofSeconds(5));
+    protected WebDriver driver = driverManager.getDriver();
+    protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10), Duration.ofSeconds(50));
     protected PageManager pageManager = PageManager.getInstance();
     protected JavascriptExecutor js = (JavascriptExecutor) driverManager.getDriver();
-    protected Actions actions;
+    protected Actions action = new Actions(driverManager.getDriver());
 
     public BasePage() {
         PageFactory.initElements(driverManager.getDriver(), this);
-        this.actions = new Actions(driverManager.getDriver());
     }
 
     protected WebElement scrollToElementJs(WebElement element) {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
+        return element;
+    }
+    public WebElement scrollWithOffset(WebElement element, int x, int y) {
+        String code = "window.scroll(" + (element.getLocation().x + x) + ","
+                + (element.getLocation().y + y) + ");";
+        ((JavascriptExecutor) driverManager.getDriver()).executeScript(code, element, x, y);
         return element;
     }
 

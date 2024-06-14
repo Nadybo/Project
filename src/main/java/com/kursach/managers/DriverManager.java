@@ -1,10 +1,14 @@
 package com.kursach.managers;
 
+import com.kursach.utils.PropsConst;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class DriverManager {
+
+    private final TestPropManager testPropManager = TestPropManager.getInstance();
 
     private static DriverManager INTANCE = null;
 
@@ -25,10 +29,16 @@ public class DriverManager {
         }
         return driver;
     }
-    public void initDriver(){
-        WebDriverManager.edgedriver().setup();
+//    public void initDriver(){
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//    }
+    private void initDriver() {
+        System.setProperty("webdriver.edge.driver", testPropManager.getProperty(PropsConst.PATH_EDGE_DRIVER_WINDOWS));
         driver = new EdgeDriver();
+
     }
+
     public void quitDriver(){
         if (driver != null){
             driver.quit();

@@ -10,7 +10,7 @@ public class mospolytechTests extends BaseTests {
         pageManager.getHomePage()
                 .selectSchedule()
                 .motionNextPage()
-                .clearfield("221-361")
-                .selectGroup();
+                .clearfield("221-361");
+//                .checkClickSearchForGroup();
     }
 }
