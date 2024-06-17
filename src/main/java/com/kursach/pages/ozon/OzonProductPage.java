@@ -2,15 +2,20 @@ package com.kursach.pages.ozon;
 
 import com.kursach.pages.BasePage;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 
 public class OzonProductPage extends BasePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(OzonProductPage.class);
 
     @FindBy(xpath = "//button[.//div[text()='Добавить в корзину']]")
     private WebElement addToCartButton;
@@ -31,53 +36,59 @@ public class OzonProductPage extends BasePage {
     @FindBy(xpath = "//section[@data-widget='emptyState' and @class='ie2_10']")
     private WebElement cheackFavoritBlock;
 
+    @Step
     public List<WebElement> getButtons() {
         wait.until(ExpectedConditions.visibilityOfAllElements(buttonList));
         return buttonList;
     }
 
+    @Step("Шаг для клика по второй кнопке на странице товара")
     public OzonProductPage clickSecondButton() {
-        // Шаг для клика по второй кнопке на странице товара
-        Allure.step("клик по второй кнопке", step -> {
-            Assertions.assertTrue(deleteBtn.isDisplayed(), "Кнопка 'Добавить в корзину' не отображается");
-            waitUtilElementToBeVisible(deleteBtn).click(); // Ждем, пока кнопка не станет видимой, и кликаем по ней
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+
+        Assertions.assertTrue(deleteBtn.isDisplayed(), "Кнопка 'Добавить в корзину' не отображается");
+        waitUtilElementToBeVisible(deleteBtn).click();
+        logger.info("Шаг для клика по второй кнопке на странице товара");
+
+        return pageManager.getOzonProductPage();
     }
 
+    @Step("Шаг для перехода на страницу корзины")
     public OzonProductPage motionBasketPage() {
-        // Шаг для перехода на страницу корзины
-        Allure.step("переход на страницу корзины", step -> {
-            Assertions.assertTrue(addToCartButton.isDisplayed(), "Кнопка 'Добавить в корзину' не отображается");
-            waitUtilElementToBeClickable(addToCartButton).click(); // Ждем, пока кнопка не станет кликабельной, и кликаем по ней
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+
+        Assertions.assertTrue(addToCartButton.isDisplayed(), "Кнопка 'Добавить в корзину' не отображается");
+        waitUtilElementToBeClickable(addToCartButton).click();
+        logger.info("Шаг для перехода на страницу корзины");
+
+        return pageManager.getOzonProductPage();
     }
 
+    @Step("Шаг для перехода на страницу корзины")
     public OzonProductPage basketPage() {
-        // Шаг для перехода на страницу корзины
-        Allure.step("страница корзины", step -> {
-            Assertions.assertTrue(inCartButton.isDisplayed(), "Кнопка 'В корзину' не отображается");
-            waitUtilElementToBeVisible(inCartButton).click(); // Ждем, пока кнопка не станет видимой, и кликаем по ней
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+
+        Assertions.assertTrue(inCartButton.isDisplayed(), "Кнопка 'В корзину' не отображается");
+        waitUtilElementToBeVisible(inCartButton).click();
+        logger.info("Шаг для перехода на страницу корзины 2");
+
+        return pageManager.getOzonProductPage();
     }
 
+    @Step("Шаг для закрытия уведомления о cookie")
     public OzonProductPage cookies() {
-        // Шаг для закрытия уведомления о cookie
-        Allure.step("закрытие cookie", step -> {
-            Assertions.assertTrue(closeCookies.isDisplayed(), "Кнопка закрытия cookie не отображается");
-            waitUtilElementToBeVisible(closeCookies).click(); // Ждем, пока кнопка не станет видимой, и кликаем по ней
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+
+        Assertions.assertTrue(closeCookies.isDisplayed(), "Кнопка закрытия cookie не отображается");
+        waitUtilElementToBeVisible(closeCookies).click();
+        logger.info("Шаг для закрытия уведомления о cookie");
+
+        return pageManager.getOzonProductPage();
     }
 
+    @Step("Шаг для удаления товара из корзины")
     public void deleteInBasket() {
-        // Шаг для удаления товара из корзины
-        Allure.step("удаление из корзины", step -> {
-            Assertions.assertTrue(targetButton.isDisplayed(), "Товар не отображается в корзине");
-            waitUtilElementToBeClickable(targetButton).click(); // Ждем, пока кнопка не станет кликабельной, и кликаем по ней
-        });
-        pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+
+        Assertions.assertTrue(targetButton.isDisplayed(), "Товар не отображается в корзине");
+        waitUtilElementToBeClickable(targetButton).click();
+        logger.info("Шаг для удаления товара из корзины");
+
+        pageManager.getOzonProductPage();
     }
 }

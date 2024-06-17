@@ -2,10 +2,12 @@ package com.kursach.pages.lambdatest;
 
 import com.kursach.pages.BasePage;
 
-import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -13,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class mainPage extends BasePage {
+    private static final Logger logger = LoggerFactory.getLogger(mainPage.class);
 
     @FindBy(tagName = "h2")
     private WebElement header;
@@ -26,6 +29,9 @@ public class mainPage extends BasePage {
     @FindBy(xpath = "//li/input")
     private List<WebElement> itemCheckboxes;
 
+    @FindBy(xpath = "//ul[@class='list-unstyled']/li/span")
+    private List<WebElement> todoItems;
+
     @FindBy(id = "sampletodotext")
     private WebElement inputField;
 
@@ -35,84 +41,82 @@ public class mainPage extends BasePage {
     @FindBy(xpath = "//li[last()]/input")
     private WebElement lastItemCheckbox;
 
+
+    @Step("Проверяем, что текст заголовка равен LambdaTest Sample App")
     public mainPage checkHeader() {
-        // Проверяем, что текст заголовка равен "LambdaTest Sample App"
         assertEquals("LambdaTest Sample App", header.getText());
-        // Возвращаем объект mainPage после проверки
+
+        logger.info("Проверяем, что текст заголовка равен LambdaTest Sample App");
+
+
         return pageManager.getMainPage();
+
     }
 
+    @Step("Проверяем, что remainingText равен ожидаемому тексту")
     public mainPage checkRemainingText(String expectedText) {
-        // Проверяем, что remainingText равен ожидаемому тексту
         assertEquals(expectedText, remainingText.getText());
-        // Возвращаем объект mainPage после проверки
+
+        logger.info("Проверяем, что remainingText равен ожидаемому тексту");
+
         return pageManager.getMainPage();
     }
 
+    @Step("Шаг для проверки, что первый элемент не завершен")
     public mainPage checkFirstItemNotCompleted() {
-        // Шаг для проверки, что первый элемент не завершен
-        Allure.step("проверка первого элемента на незавершенность", step -> {
-            try {
-                Thread.sleep(1000); // Рассмотрите замену на корректное ожидание
-            } catch (InterruptedException e) {
+        try {
+                Thread.sleep(1000);
+        } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
-            // Получаем атрибут class у чекбокса первого элемента
-            String classAttribute = firstItemCheckbox.getAttribute("class");
-            // Утверждения для проверки состояния чекбокса
-            assertTrue(classAttribute.contains("ng-pristine"));
-            assertTrue(classAttribute.contains("ng-untouched"));
-            Assertions.assertTrue(classAttribute.contains("ng-valid"));
-        });
-        // Возвращаем объект mainPage после проверки
+        }
+        String classAttribute = firstItemCheckbox.getAttribute("class");
+        assertTrue(classAttribute.contains("ng-pristine"));
+        assertTrue(classAttribute.contains("ng-untouched"));
+        Assertions.assertTrue(classAttribute.contains("ng-valid"));
+
+        logger.info("Шаг для проверки, что первый элемент не завершен");
+
         return pageManager.getMainPage();
     }
 
-    public mainPage clickFirstItemCheckbox() {
-        // Шаг для клика по чекбоксу первого элемента
-        Allure.step("клик по чекбоксу первого элемента", step -> {
-            try {
-                Thread.sleep(1000); // Рассмотрите замену на корректное ожидание
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    @Step("Проверка, что элемент списка не зачеркнут")
+    public mainPage clickFirstItemCheckbox(String nameOfItem) {
+        for (WebElement item : todoItems) {
+            if (item.getText().trim().equals(nameOfItem)) {
+                Assertions.assertTrue(item.getAttribute("class").contains("done-false"));
+                return this;
             }
-            // Кликаем по чекбоксу первого элемента
-            firstItemCheckbox.click();
-            Assertions.assertTrue(firstItemCheckbox.isSelected());
-        });
-        // Возвращаем объект mainPage после проверки
-        return pageManager.getMainPage();
+        }
+        logger.info("Проверка, что элемент списка не зачеркнут");
+        Assertions.fail("Элемент '" + nameOfItem + "' не присутствует на странице");
+        return this;
     }
 
+    @Step("Шаг для клика по чекбоксам элементов")
     public mainPage clickItemCheckbox() {
-        // Шаг для клика по чекбоксам элементов
-        Allure.step("клик по чекбоксам элементов", step -> {
-            for (int i = 1; i < 5; i++) {
-                itemCheckboxes.get(i).click();
-            }
-        });
-        // Возвращаем объект mainPage после кликов
+        for (int i = 0; i < 5; i++) {
+            itemCheckboxes.get(i).click();
+        }
+        logger.info("Шаг для клика по чекбоксам элементов");
         return pageManager.getMainPage();
     }
 
+    @Step("Шаг для добавления нового элемента")
     public mainPage addNewItem(String item) {
-        // Шаг для добавления нового элемента
-        Allure.step("добавление нового элемента", step -> {
-            inputField.sendKeys(item);
-            addButton.click();
-        });
-        // Возвращаем объект mainPage после добавления
+        inputField.sendKeys(item);
+        addButton.click();
+
+        logger.info("Шаг для добавления нового элемента");
         return pageManager.getMainPage();
     }
 
-    public mainPage clickLastItem() {
-        // Шаг для клика по последнему элементу
-        Allure.step("клик по последнему элементу", step -> {
-            lastItemCheckbox.click();
-            Assertions.assertTrue(lastItemCheckbox.isSelected());
-        });
-        // Возвращаем объект mainPage после клика
-        return pageManager.getMainPage();
+    @Step("Шаг для клика по последнему элементу")
+    public void clickLastItem() {
+        lastItemCheckbox.click();
+
+        Assertions.assertTrue(lastItemCheckbox.isSelected());
+        logger.info("Шаг для клика по последнему элементу");
+        pageManager.getMainPage();
     }
 
 

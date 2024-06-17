@@ -2,6 +2,7 @@ package com.kursach.pages.yandex;
 
 import com.kursach.pages.BasePage;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -37,65 +38,56 @@ public class catalogPlanshety extends BasePage {
     private WebElement searchButton;
 
     public List<WebElement> getProducts() {
-        // Ожидаем видимости всех элементов списка продуктов
         wait.until(ExpectedConditions.visibilityOfAllElements(products));
-        return products; // Возвращаем список элементов продуктов
+        return products;
     }
 
+    @Step("Шаг для логирования первых пяти продуктов")
     public catalogPlanshety logFirstFiveProducts() {
-        // Шаг для логирования первых пяти продуктов
-        Allure.step("логирование первых пяти продуктов", step -> {
-            List<WebElement> productsList = getProducts(); // Получаем список продуктов
-            for (int i = 0; i < Math.min(productsList.size(), 5); i++) { // Логируем максимум пять продуктов
-                WebElement product = productsList.get(i);
-                String productName = product.findElement(By.cssSelector("h3[data-auto='snippet-title']")).getText(); // Находим название продукта
-                String productPrice = product.findElement(By.cssSelector("span[data-auto='snippet-price-current']")).getText(); // Находим цену продукта
-                logger.info("Product {}: Title - {}, Price - {}", i + 1, productName, productPrice); // Логируем информацию о продукте
-                if (i == 1) {
-                    secondProductName = productName; // Запоминаем название второго продукта
-                    secondProductPrice = productPrice; // Запоминаем цену второго продукта
+        List<WebElement> productsList = getProducts();
+        for (int i = 0; i < Math.min(productsList.size(), 5); i++) {
+            WebElement product = productsList.get(i);
+            String productName = product.findElement(By.cssSelector("h3[data-auto='snippet-title']")).getText();
+            String productPrice = product.findElement(By.cssSelector("span[data-auto='snippet-price-current']")).getText();
+            logger.info("Product {}: Title - {}, Price - {}", i + 1, productName, productPrice);
+            if (i == 1) {
+                secondProductName = productName;
+                secondProductPrice = productPrice;
                 }
             }
-        });
-        return pageManager.getCataloPlanshety(); // Возвращаем страницу каталога планшетов
+
+        return pageManager.getCataloPlanshety();
     }
 
+    @Step("Шаг для фильтрации по Samsung")
     public catalogPlanshety filterBySamsung() {
-        // Шаг для фильтрации по Samsung
-        Allure.step("фильтрация по Samsung", step -> {
-            Assertions.assertTrue(samsungCheckbox.isDisplayed(), "Кнопка выбора бренда Samsung не отображается");
 
-            waitUtilElementToBeClickable(samsungCheckbox).click(); // Ждем, пока кнопка не станет кликабельной и кликаем по ней
-        });
-        return pageManager.getCataloPlanshety(); // Возвращаем страницу каталога планшетов
+        Assertions.assertTrue(samsungCheckbox.isDisplayed(), "Кнопка выбора бренда Samsung не отображается");
+
+        waitUtilElementToBeClickable(samsungCheckbox).click();
+        logger.info("Шаг для фильтрации по Samsung");
+
+        return pageManager.getCataloPlanshety();
     }
 
+    @Step("Шаг для сортировки по возрастанию цены")
     public catalogPlanshety SortToCheap() {
-        // Шаг для сортировки по возрастанию цены
-        Allure.step("сортировка по возрастанию цены", step -> {
-            Assertions.assertTrue(sortButton.isDisplayed(), "Кнопка сортировки не отображается");
+        Assertions.assertTrue(sortButton.isDisplayed(), "Кнопка сортировки не отображается");
 
-            waitUtilElementToBeClickable(sortButton).click(); // Ждем, пока кнопка не станет кликабельной и кликаем по ней
-        });
-        return pageManager.getCataloPlanshety(); // Возвращаем страницу каталога планшетов
+        waitUtilElementToBeClickable(sortButton).click();
+        logger.info("Шаг для сортировки по возрастанию цены");
+
+        return pageManager.getCataloPlanshety();
     }
 
+    @Step("Шаг для поиска второго продукта")
     public void searchSecondProduct() {
-        // Шаг для поиска второго продукта
-        Allure.step("поиск второго продукта", step -> {
-            if (secondProductName != null) {
-                searchInput.sendKeys(secondProductName); // Вводим название второго продукта в поле поиска
-            }
-            Assertions.assertTrue(searchButton.isDisplayed(), "Кнопка поиска не отображается");
-            waitUtilElementToBeVisible(searchButton).click(); // Ждем, пока кнопка не станет видимой и кликаем по ней
-        });
-    }
+        if (secondProductName != null) {
+            searchInput.sendKeys(secondProductName); // Вводим название второго продукта в поле поиска
+        }
+        Assertions.assertTrue(searchButton.isDisplayed(), "Кнопка поиска не отображается");
+        waitUtilElementToBeVisible(searchButton).click();
+        logger.info("Шаг для поиска второго продукта");
 
-    public String getSecondProductName() {
-        return secondProductName; // Возвращаем название второго продукта
-    }
-
-    public String getSecondProductPrice() {
-        return secondProductPrice; // Возвращаем цену второго продукта
     }
 }

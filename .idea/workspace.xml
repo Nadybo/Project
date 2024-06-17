@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dfdc75d-669a-4ac2-85c2-b62655aadd4a" name="Changes" comment="version 2.1">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Allure.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/utils/AllureListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" afterDir="false" />
@@ -18,13 +18,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/OzonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/OzonTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/base/BaseTests4Lab4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/mospolytechTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/mospolytechTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +33,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="JUnit" name="OzonTests" />
-    </enabled-run-configurations>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -55,41 +49,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.LambdaTest.testPageHeader.executor": "Run",
-    "JUnit.OzonTests.executor": "Run",
-    "JUnit.OzonTests.testCase.executor": "Run",
-    "JUnit.OzonTests.testCase2.executor": "Run",
-    "JUnit.OzonTests.testCase3.executor": "Run",
-    "JUnit.OzonTests.tests.executor": "Run",
-    "JUnit.TodoTests.addNewItem.executor": "Run",
-    "JUnit.TodoTests.clickCheckbox.executor": "Run",
-    "JUnit.TodoTests.executor": "Run",
-    "JUnit.TodoTests.testCompleteAllItems.executor": "Run",
-    "JUnit.TodoTests.testPageHeader.executor": "Debug",
-    "JUnit.TodoTests.testRemainingItemsText.executor": "Run",
-    "JUnit.TodoTests.tests.executor": "Run",
-    "JUnit.YandexTests.Tests.executor": "Run",
-    "JUnit.YandexTests.executor": "Run",
-    "JUnit.mospolytechTests.Tests.executor": "Run",
-    "JUnit.mospolytechTests.executor": "Run",
-    "JUnit.mospolytechTests.lab2Tests.executor": "Run",
-    "JUnit.mospolytechTests.tests.executor": "Run",
-    "JUnit.mospolytechTests.tests3.executor": "Run",
-    "Maven.kursach2024-2 [allure:report].executor": "Run",
-    "Maven.kursach2024-2 [clean,test,allure:report].executor": "Run",
-    "Maven.kursach2024-2 [clean].executor": "Run",
-    "Maven.kursach2024-2 [test,clean].executor": "Run",
-    "Maven.kursach2024-2 [test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/kursach2024-2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.LambdaTest.testPageHeader.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OzonTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OzonTests.testCase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OzonTests.testCase2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OzonTests.testCase3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OzonTests.tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.addNewItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.clickCheckbox.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.testCompleteAllItems.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.testPageHeader.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TodoTests.testRemainingItemsText.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TodoTests.tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.YandexTests.Tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.YandexTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.mospolytechTests.Tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.mospolytechTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.mospolytechTests.lab2Tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.mospolytechTests.tests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.mospolytechTests.tests3.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.kursach2024-2 [allure:report].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.kursach2024-2 [clean,test,allure:report].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.kursach2024-2 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.kursach2024-2 [test,clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.kursach2024-2 [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/kursach2024-2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\kursach2024-2\src\main\resources" />
@@ -101,42 +95,11 @@
       <command value="mvn allure:report" />
       <command value="mvn test clean" />
       <command value="mvn clean" />
-      <command value="mvn test" />
       <command value="mvn allure:report  " />
+      <command value="mvn test" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.YandexTests">
-    <configuration name="OzonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kursach2024-2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kursach.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kursach.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.OzonTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OzonTests.testCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="kursach2024-2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.kursach.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.kursach.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.OzonTests" />
-      <option name="METHOD_NAME" value="testCase" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OzonTests.testCase3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kursach2024-2" />
       <extension name="coverage">
@@ -148,6 +111,37 @@
       <option name="PACKAGE_NAME" value="com.kursach.tests" />
       <option name="MAIN_CLASS_NAME" value="com.kursach.tests.OzonTests" />
       <option name="METHOD_NAME" value="testCase3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TodoTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kursach2024-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kursach.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kursach.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.TodoTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TodoTests.tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kursach2024-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kursach.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kursach.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.kursach.tests.TodoTests" />
+      <option name="METHOD_NAME" value="tests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,10 +181,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.YandexTests" />
+        <item itemvalue="JUnit.TodoTests" />
+        <item itemvalue="JUnit.TodoTests.tests" />
         <item itemvalue="JUnit.OzonTests.testCase3" />
         <item itemvalue="JUnit.YandexTests.Tests" />
-        <item itemvalue="JUnit.OzonTests.testCase" />
-        <item itemvalue="JUnit.OzonTests" />
       </list>
     </recent_temporary>
   </component>
@@ -219,11 +213,20 @@
       <option name="project" value="LOCAL" />
       <updated>1718382039924</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version 2.1">
+      <option name="closed" value="true" />
+      <created>1718577974269</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718577974270</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 2.0" />
+    <MESSAGE value="version 2.3" />
     <MESSAGE value="version 2.1" />
     <option name="LAST_COMMIT_MESSAGE" value="version 2.1" />
   </component>

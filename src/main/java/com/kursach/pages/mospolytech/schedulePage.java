@@ -1,12 +1,16 @@
 package com.kursach.pages.mospolytech;
 
 import com.kursach.pages.BasePage;
+import com.kursach.pages.lambdatest.mainPage;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -14,6 +18,7 @@ import java.util.List;
 
 
 public class schedulePage extends BasePage {
+    private static final Logger logger = LoggerFactory.getLogger(schedulePage.class);
 
     @FindBy(xpath = "//input[@class=\"groups\"and@placeholder=\"группа ...\"]")
     private WebElement inputGroup;
@@ -28,85 +33,77 @@ public class schedulePage extends BasePage {
     @FindBy(xpath = "//div[@class='schedule-day schedule-day_today']/div[1]")
     private WebElement todayScheduleDayTitle;
 
-
+    @Step("Шаг для очистки поля и ввода номера группы")
     public schedulePage clearfield(String groupNumber) {
-        // Шаг для очистки поля и ввода номера группы
-        Allure.step("очистка поля и ввод номера группы", step -> {
-            waitUtilElementToBeVisible(inputGroup); // Ждем, пока поле ввода станет видимым
-            waitUtilElementToBeClickable(inputGroup); // Ждем, пока поле ввода станет кликабельным
+        waitUtilElementToBeVisible(inputGroup);
+        waitUtilElementToBeClickable(inputGroup);
 
-            inputGroup.clear(); // Очищаем поле ввода
-            inputGroup.sendKeys(groupNumber); // Вводим номер группы
-            try {
-                Thread.sleep(1000); // Делаем паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        inputGroup.clear();
+        inputGroup.sendKeys(groupNumber);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-            // Ждем, пока появится результат поиска
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"found-groups row not-print\"]")));
-            try {
-                Thread.sleep(2000); // Делаем дополнительную паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
-            // Проверяем, что найден ровно один результат поиска для номера группы
-            Assertions.assertEquals(1, resultGroups.size(), "Ожидался ровно один результат поиска для номера группы: " + groupNumber + ", но найдено " + resultGroups.size());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"found-groups row not-print\"]")));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-            WebElement searchResult = resultGroup;
-            // Проверяем, что результат поиска содержит номер группы в атрибуте id
-            Assertions.assertTrue(searchResult.getAttribute("id").contains(groupNumber), "Результат поиска не содержит номер группы: " + groupNumber);
+        Assertions.assertEquals(1, resultGroups.size(), "Ожидался ровно один результат поиска для номера группы: " + groupNumber + ", но найдено " + resultGroups.size());
 
-            try {
-                Thread.sleep(1000); // Делаем паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        WebElement searchResult = resultGroup;
 
-        return pageManager.getSchedulepage(); // Возвращаем страницу расписания
+        Assertions.assertTrue(searchResult.getAttribute("id").contains(groupNumber), "Результат поиска не содержит номер группы: " + groupNumber);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        logger.info("Шаг для очистки поля и ввода номера группы");
+        return pageManager.getSchedulepage();
     }
 
+    @Step("Шаг для проверки и клика по результату поиска группы")
     public schedulePage checkClickSearchForGroup() {
-        // Шаг для проверки и клика по результату поиска группы
-        Allure.step("проверка и клик по результату поиска группы", step -> {
-            waitUtilElementToBeClickable(resultGroup); // Ждем, пока результат поиска станет кликабельным
 
-            scrollWithOffset(resultGroup, 0, 100); // Прокручиваем до элемента resultGroup с смещением по вертикали
-            try {
-                Thread.sleep(2000); // Делаем паузу для стабилизации интерфейса
+        waitUtilElementToBeClickable(resultGroup);
+
+        scrollWithOffset(resultGroup, 0, 100);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        resultGroup.click();
+
+        waitUtilElementToBeVisible(todayScheduleDay);
+
+        String currentDay = getCurrentDayOfWeek();
+        try {
+            Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        Assertions.assertTrue(todayScheduleDay.getAttribute("class").contains("schedule-day_today"), "Текущий день не выделен на странице расписания");
+        Assertions.assertTrue(todayScheduleDayTitle.getText().contains(currentDay), "Выделенный день не соответствует текущему дню недели");
 
-            resultGroup.click(); // Кликаем по результату поиска
-
-            waitUtilElementToBeVisible(todayScheduleDay); // Ждем, пока страница расписания станет видимой
-
-            String currentDay = getCurrentDayOfWeek(); // Получаем текущий день недели
-            try {
-                Thread.sleep(2000); // Делаем паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            // Проверяем, что текущий день недели выделен на странице расписания
-            Assertions.assertTrue(todayScheduleDay.getAttribute("class").contains("schedule-day_today"), "Текущий день не выделен на странице расписания");
-            // Проверяем, что выделенный день соответствует текущему дню недели
-            Assertions.assertTrue(todayScheduleDayTitle.getText().contains(currentDay), "Выделенный день не соответствует текущему дню недели");
-        });
-
-        return pageManager.getSchedulepage(); // Возвращаем страницу расписания
+        logger.info("Шаг для проверки и клика по результату поиска группы");
+        return pageManager.getSchedulepage();
     }
 
     public String getCurrentDayOfWeek() {
-        // Метод для получения текущего дня недели на русском языке
-        LocalDate currentDate = LocalDate.now(); // Получаем текущую дату
 
-        DayOfWeek dayOfWeek = currentDate.getDayOfWeek(); // Получаем день недели
+        LocalDate currentDate = LocalDate.now();
+        DayOfWeek dayOfWeek = currentDate.getDayOfWeek();
 
-        // Возвращаем название дня недели на русском языке
         switch (dayOfWeek) {
             case MONDAY:
                 return "Понедельник";

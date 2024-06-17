@@ -2,14 +2,19 @@ package com.kursach.pages.ozon;
 
 import com.kursach.pages.BasePage;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OzonProductSearch extends BasePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(OzonProductSearch.class);
 
     @FindBy(xpath = "//span[text()='Samsung']")
     private WebElement samsungElement;
@@ -35,87 +40,87 @@ public class OzonProductSearch extends BasePage {
     @FindBy(xpath = "//*[@id='layoutPage']/div[1]/div[2]/div[2]/div[1]/div/aside/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/input")
     private WebElement inputPriceBefore;
 
+    @Step("Шаг для проверки страницы")
     public OzonProductSearch checkPage() {
-        // Шаг для проверки страницы
-        Allure.step("проверка страницы", step -> {
-            try {
-                Thread.sleep(2000); // Делаем паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Assertions.assertTrue(checkText.isDisplayed(), "Текст не отображается на странице");
-            assertEquals("ноутбук", waitUtilElementToBeVisible(checkText).getText()); // Проверяем текст на соответствие "ноутбук"
-            System.out.println(checkText.getText()); // Выводим текст на консоль
-        });
-        return pageManager.getOzonProductSearch(); // Возвращаем страницу поиска товаров на Ozon
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertTrue(checkText.isDisplayed(), "Текст не отображается на странице");
+        assertEquals("ноутбук", waitUtilElementToBeVisible(checkText).getText());
+        System.out.println(checkText.getText());
+        logger.info("Шаг для проверки страницы");
+
+        return pageManager.getOzonProductSearch();
     }
 
+    @Step("Шаг для выбора товара")
     public OzonProductSearch selectProduct() {
-        // Шаг для выбора товара
-        Allure.step("выбор товара", step -> {
-            Assertions.assertTrue(exampleButton.isDisplayed(), "Кнопка не отображается на странице");
+        Assertions.assertTrue(exampleButton.isDisplayed(), "Кнопка не отображается на странице");
 
-            waitUtilElementToBeVisible(exampleButton).click(); // Ждем, пока кнопка не станет видимой и кликаем по ней
-        });
-        return pageManager.getOzonProductSearch(); // Возвращаем страницу поиска товаров на Ozon
+        waitUtilElementToBeVisible(exampleButton).click();
+        logger.info("Шаг для выбора товара");
+
+        return pageManager.getOzonProductSearch();
     }
 
+    @Step("Шаг для добавления товара в избранное")
     public OzonProductSearch favoritProducts() {
-        // Шаг для добавления товара в избранное
-        Allure.step("добавление в избранное", step -> {
-            Assertions.assertTrue(favoriteElement.isDisplayed(), "Кнопка не отображается на странице");
+        Assertions.assertTrue(favoriteElement.isDisplayed(), "Кнопка не отображается на странице");
+        waitUtilElementToBeClickable(favoriteElement).click();
+        logger.info("Шаг для добавления товара в избранное");
 
-            waitUtilElementToBeClickable(favoriteElement).click(); // Ждем, пока кнопка не станет кликабельной и кликаем по ней
-        });
-        return pageManager.getOzonProductSearch(); // Возвращаем страницу поиска товаров на Ozon
+        return pageManager.getOzonProductSearch();
     }
 
+    @Step("Шаг для перехода на страницу товара")
     public OzonProductPage motionProductPage() {
-        // Шаг для перехода на страницу товара
-        Allure.step("переход на страницу товара", step -> {
-            Assertions.assertTrue(productName.isDisplayed(), "Наименование товара не отображается на странице");
+        Assertions.assertTrue(productName.isDisplayed(), "Наименование товара не отображается на странице");
 
-            waitUtilElementToBeClickable(productName).click(); // Ждем, пока наименование товара не станет кликабельным и кликаем по нему
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+        waitUtilElementToBeClickable(productName).click();
+        logger.info("Шаг для перехода на страницу товара");
+
+        return pageManager.getOzonProductPage();
     }
 
+    @Step("Шаг для выбора бренда")
     public OzonProductSearch selectBrand() {
-        // Шаг для выбора бренда
-        Allure.step("выбор бренда", step -> {
-            try {
-                Thread.sleep(2000); // Делаем паузу для стабилизации интерфейса
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Assertions.assertTrue(samsungElement.isDisplayed(), "Кнопка не отображается на странице");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertTrue(samsungElement.isDisplayed(), "Кнопка не отображается на странице");
 
-            waitUtilElementToBeClickable(samsungElement).click(); // Ждем, пока кнопка не станет кликабельной и кликаем по ней
-        });
-        return pageManager.getOzonProductSearch(); // Возвращаем страницу поиска товаров на Ozon
+        waitUtilElementToBeClickable(samsungElement).click();
+        logger.info("Шаг для выбора бренда");
+        return pageManager.getOzonProductSearch();
     }
 
+    @Step("Шаг для ввода цены от")
     public OzonProductSearch priceFrom(String price_from) {
-        // Шаг для ввода цены "от"
-        Allure.step("цена от", step -> {
-            Assertions.assertTrue(inputPriceFrom.isDisplayed(), "Поле не отображается на странице");
 
-            inputPriceFrom.sendKeys(Keys.chord(Keys.CONTROL, "a")); // Выделяем всё
-            inputPriceFrom.sendKeys(Keys.DELETE); // Удаляем текущее значение
-            waitUtilElementToBeVisible(inputPriceFrom).sendKeys(price_from); // Вводим новое значение цены "от"
-        });
-        return pageManager.getOzonProductSearch(); // Возвращаем страницу поиска товаров на Ozon
+        Assertions.assertTrue(inputPriceFrom.isDisplayed(), "Поле не отображается на странице");
+
+        inputPriceFrom.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        inputPriceFrom.sendKeys(Keys.DELETE);
+        waitUtilElementToBeVisible(inputPriceFrom).sendKeys(price_from);
+        logger.info("Шаг для ввода цены от");
+
+        return pageManager.getOzonProductSearch();
     }
 
+    @Step("Шаг для ввода цены до")
     public OzonProductPage priceBfore(String price_bfore) {
-        // Шаг для ввода цены "до"
-        Allure.step("цена до", step -> {
-            Assertions.assertTrue(inputPriceBefore.isDisplayed(), "Поле не отображается на странице");
+        Assertions.assertTrue(inputPriceBefore.isDisplayed(), "Поле не отображается на странице");
 
-            inputPriceBefore.sendKeys(Keys.chord(Keys.CONTROL, "a")); // Выделяем всё
-            inputPriceBefore.sendKeys(Keys.DELETE); // Удаляем текущее значение
-            waitUtilElementToBeVisible(inputPriceBefore).sendKeys(price_bfore); // Вводим новое значение цены "до"
-        });
-        return pageManager.getOzonProductPage(); // Возвращаем страницу товара на Ozon
+        inputPriceBefore.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        inputPriceBefore.sendKeys(Keys.DELETE);
+        waitUtilElementToBeVisible(inputPriceBefore).sendKeys(price_bfore);
+        logger.info("Шаг для ввода цены до");
+
+        return pageManager.getOzonProductPage();
     }
 }

@@ -1,12 +1,16 @@
 package com.kursach.pages.yandex;
 
 import com.kursach.pages.BasePage;
-import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class YandexHomePage extends BasePage {
+
+    private static final Logger logger = LoggerFactory.getLogger(YandexHomePage.class);
 
     @FindBy(css = "div[data-zone-name='catalog'] button")
     private WebElement catalogButton;
@@ -18,40 +22,43 @@ public class YandexHomePage extends BasePage {
     private WebElement tabletsButton;
 
 
+    @Step("Шаг для открытия каталога на главной странице Yandex")
     public YandexHomePage openCatalog() {
-        // Шаг для открытия каталога на главной странице Yandex
-        Allure.step("открытие каталога", step -> {
-            Assertions.assertTrue(catalogButton.isDisplayed(), "Кнопка каталога не отображается на странице");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertTrue(catalogButton.isDisplayed(), "Кнопка каталога не отображается на странице");
 
-            waitUtilElementToBeClickable(catalogButton).click(); // Ждем, пока кнопка не станет кликабельной и кликаем по ней
-        });
-        return pageManager.getYandexPage(); // Возвращаем страницу Yandex
+        waitUtilElementToBeClickable(catalogButton).click();
+        logger.info("Шаг для открытия каталога на главной странице Yandex");
+        return pageManager.getYandexPage();
     }
 
+    @Step("Шаг для выбора категории 'Ноутбуки' в каталоге")
     public YandexHomePage slectCategory() {
-        // Шаг для выбора категории "Ноутбуки" в каталоге
-        Allure.step("выбор категории", step -> {
-            Assertions.assertTrue(linkNounbooks.isDisplayed(), "Ссылка на категорию 'Ноутбуки' не отображается");
+        Assertions.assertTrue(linkNounbooks.isDisplayed(), "Ссылка на категорию 'Ноутбуки' не отображается");
 
-            waitUtilElementToBeVisible(linkNounbooks); // Ждем, пока ссылка не станет видимой
-            action.moveToElement(linkNounbooks).perform(); // Наводим курсор на элемент
-        });
-        return pageManager.getYandexPage(); // Возвращаем страницу Yandex
+        waitUtilElementToBeVisible(linkNounbooks);
+        action.moveToElement(linkNounbooks).perform();
+        logger.info("Шаг для выбора категории 'Ноутбуки' в каталоге");
+        return pageManager.getYandexPage();
     }
 
+    @Step("Шаг для перехода на страницу планшетов в каталоге")
     public catalogPlanshety TablesPage() {
-        // Шаг для перехода на страницу планшетов в каталоге
-        Allure.step("страница с планшетами", step -> {
-            Assertions.assertTrue(tabletsButton.isDisplayed(), "Ссылка на страницу с планшетами не отображается");
+        Assertions.assertTrue(tabletsButton.isDisplayed(), "Ссылка на страницу с планшетами не отображается");
 
-            try {
-                Thread.sleep(5000); // Делаем паузу для стабилизации интерфейса (можно рассмотреть замену на более надежные ожидания)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            waitUtilElementToBeVisible(tabletsButton).click(); // Ждем, пока ссылка на планшеты не станет видимой и кликаем по ней
-            pageManager.getCataloPlanshety(); // Возвращаем страницу каталога планшетов
-        });
-        return pageManager.getCataloPlanshety(); // Возвращаем страницу каталога планшетов
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        waitUtilElementToBeVisible(tabletsButton).click();
+        pageManager.getCataloPlanshety();
+        logger.info("Шаг для перехода на страницу планшетов в каталоге");
+
+        return pageManager.getCataloPlanshety();
     }
 }
