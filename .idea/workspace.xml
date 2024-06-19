@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dfdc75d-669a-4ac2-85c2-b62655aadd4a" name="Changes" comment="version 2.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kursach/utils/AllureListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+    <list default="true" id="8dfdc75d-669a-4ac2-85c2-b62655aadd4a" name="Changes" comment="version 2.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/managers/DriverManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/lambdatest/mainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/mospolytechHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/mospolytech/schedulePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/ozon/OzonProductSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/YandexHomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kursach/pages/yandex/catalogPlanshety.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/TodoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kursach/tests/YandexTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kursach/tests/YandexTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,8 +172,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.YandexTests" />
-        <item itemvalue="JUnit.TodoTests" />
         <item itemvalue="JUnit.TodoTests.tests" />
+        <item itemvalue="JUnit.TodoTests" />
         <item itemvalue="JUnit.OzonTests.testCase3" />
         <item itemvalue="JUnit.YandexTests.Tests" />
       </list>
@@ -221,14 +212,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718577974270</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="version 2.5">
+      <option name="closed" value="true" />
+      <created>1718650040167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718650040167</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 2.0" />
     <MESSAGE value="version 2.3" />
     <MESSAGE value="version 2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 2.1" />
+    <MESSAGE value="version 2.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 2.5" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kursach2024_2$OzonTests.ic" NAME="OzonTests Coverage Results" MODIFIED="1718299977871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

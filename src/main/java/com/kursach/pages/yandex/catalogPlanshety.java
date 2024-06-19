@@ -1,7 +1,7 @@
 package com.kursach.pages.yandex;
 
 import com.kursach.pages.BasePage;
-import io.qameta.allure.Allure;
+import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -37,6 +37,12 @@ public class catalogPlanshety extends BasePage {
     @FindBy(css = "button[data-auto='search-button']")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//*[@id='/content/page/fancyPage/cms/1/SearchTitleWithBreadcrumbs-SearchTitleWithBreadcrumbs']/div/div/div/h1")
+    private WebElement checkPageTables;
+
+    @FindBy(xpath = "//*[@id='/content/page/fancyPage/cms/3/QuickFiltersWrapper-QuickFiltersWrapper/quickFilters']/div/div/div/div[1]/div/button/span")
+    private WebElement filterTitle;
+
     public List<WebElement> getProducts() {
         wait.until(ExpectedConditions.visibilityOfAllElements(products));
         return products;
@@ -59,12 +65,20 @@ public class catalogPlanshety extends BasePage {
         return pageManager.getCataloPlanshety();
     }
 
+    @Step("Проверка заголовка страницу")
+    public catalogPlanshety checkPageTitele(String title){
+        Assertions.assertEquals(checkPageTables.getText(),title,"Проверка заголовка страницу планшеты");
+        logger.info("Проверка заголовка страницу планшеты");
+        return this;
+    }
+
     @Step("Шаг для фильтрации по Samsung")
     public catalogPlanshety filterBySamsung() {
 
         Assertions.assertTrue(samsungCheckbox.isDisplayed(), "Кнопка выбора бренда Samsung не отображается");
 
         waitUtilElementToBeClickable(samsungCheckbox).click();
+        Assertions.assertEquals(filterTitle.getText(),"Samsung");
         logger.info("Шаг для фильтрации по Samsung");
 
         return pageManager.getCataloPlanshety();
@@ -75,19 +89,33 @@ public class catalogPlanshety extends BasePage {
         Assertions.assertTrue(sortButton.isDisplayed(), "Кнопка сортировки не отображается");
 
         waitUtilElementToBeClickable(sortButton).click();
+
+        String ariaPressed = sortButton.getAttribute("aria-pressed");
+        if ("true".equals(ariaPressed)) {
+            System.out.println("Кнопка выбрана (aria-pressed='true').");
+        } else {
+            System.out.println("Кнопка не выбрана (aria-pressed!='true').");
+        }
         logger.info("Шаг для сортировки по возрастанию цены");
 
         return pageManager.getCataloPlanshety();
     }
 
     @Step("Шаг для поиска второго продукта")
-    public void searchSecondProduct() {
+    public catalogPlanshety searchSecondProduct() {
         if (secondProductName != null) {
-            searchInput.sendKeys(secondProductName); // Вводим название второго продукта в поле поиска
+            searchInput.sendKeys(secondProductName);
         }
         Assertions.assertTrue(searchButton.isDisplayed(), "Кнопка поиска не отображается");
         waitUtilElementToBeVisible(searchButton).click();
         logger.info("Шаг для поиска второго продукта");
+        return this;
+    }
 
+    @Step("Проверка результатов поиска")
+    public void CheckingSearchResults(){
+        waitUtilElementToBeVisible(checkPageTables);
+        Assertions.assertEquals(checkPageTables.getText(),secondProductName,"Проверка результатов поиска");
     }
 }
+

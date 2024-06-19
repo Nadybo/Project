@@ -10,10 +10,12 @@ public class YandexTests extends BaseTests4Lab3{
                 .openCatalog()
                 .slectCategory()
                 .TablesPage()
+                .checkPageTitele("Планшеты")
                 .filterBySamsung()
                 .SortToCheap()
                 .logFirstFiveProducts()
-                .searchSecondProduct();
+                .searchSecondProduct()
+                .CheckingSearchResults();
 
     }
 }
