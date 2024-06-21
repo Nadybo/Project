@@ -20,7 +20,8 @@ public class OzonTests extends BaseTests4Lab4 {
                 .searchProduct()
                 .selectBrand()
                 .priceFrom("50000")
-                .priceBfore("150000");
+                .priceBfore("150000")
+                .checkingPriceFiled("50 000","234 367");
 
     }
 
@@ -37,8 +38,6 @@ public class OzonTests extends BaseTests4Lab4 {
                 .basketPage()
                 .clickSecondButton()
                 .deleteInBasket();
-
-
 
     }
 }

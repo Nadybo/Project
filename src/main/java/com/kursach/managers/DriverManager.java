@@ -30,15 +30,15 @@ public class DriverManager {
         }
         return driver;
     }
-//    public void initDriver(){
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//    }
-    private void initDriver() {
-        System.setProperty("webdriver.edge.driver", testPropManager.getProperty(PropsConst.PATH_EDGE_DRIVER_WINDOWS));
-        driver = new EdgeDriver();
-
+    public void initDriver(){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
+//    private void initDriver() {
+//        System.setProperty("webdriver.edge.driver", testPropManager.getProperty(PropsConst.PATH_EDGE_DRIVER_WINDOWS));
+//        driver = new EdgeDriver();
+//
+//    }
 
     public void quitDriver(){
         if (driver != null){

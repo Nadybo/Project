@@ -37,6 +37,9 @@ public class catalogPlanshety extends BasePage {
     @FindBy(css = "button[data-auto='search-button']")
     private WebElement searchButton;
 
+    @FindBy(xpath = "<span class='_1ArMm'>30 581</span>")
+    private WebElement actualPoductPrice;
+
     @FindBy(xpath = "//*[@id='/content/page/fancyPage/cms/1/SearchTitleWithBreadcrumbs-SearchTitleWithBreadcrumbs']/div/div/div/h1")
     private WebElement checkPageTables;
 
@@ -116,6 +119,8 @@ public class catalogPlanshety extends BasePage {
     public void CheckingSearchResults(){
         waitUtilElementToBeVisible(checkPageTables);
         Assertions.assertEquals(checkPageTables.getText(),secondProductName,"Проверка результатов поиска");
+        Assertions.assertEquals(actualPoductPrice.getText(), secondProductPrice, "Проверка цена продукта");
+        logger.info("Проверка результатов поиска");
     }
 }
 

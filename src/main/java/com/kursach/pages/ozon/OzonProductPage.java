@@ -10,12 +10,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.xpath.XPath;
 import java.util.List;
 
 
 public class OzonProductPage extends BasePage {
 
     private static final Logger logger = LoggerFactory.getLogger(OzonProductPage.class);
+    private static int count = 0;
 
     @FindBy(xpath = "//button[.//div[text()='Добавить в корзину']]")
     private WebElement addToCartButton;
@@ -30,11 +32,14 @@ public class OzonProductPage extends BasePage {
     private WebElement deleteBtn;
     private List<WebElement> buttonList;
 
-    @FindBy(xpath = "//button[@class='fd1_9 b214-a0 b214-b5 b214-a4' and .//div[text()='ОК']]")
+    @FindBy(xpath = "//*[@id=\"layoutPage\"]/div[2]/div/div/div/button")
     private WebElement closeCookies;
 
     @FindBy(xpath = "//section[@data-widget='emptyState' and @class='ie2_10']")
     private WebElement cheackFavoritBlock;
+
+    @FindBy(xpath = "//*[@id='stickyHeader']/div/div[3]/a[2]/span[1]")
+    private WebElement indicatorBacket;
 
     @Step
     public List<WebElement> getButtons() {
@@ -54,9 +59,15 @@ public class OzonProductPage extends BasePage {
 
     @Step("Шаг для перехода на страницу корзины")
     public OzonProductPage motionBasketPage() {
-
         Assertions.assertTrue(addToCartButton.isDisplayed(), "Кнопка 'Добавить в корзину' не отображается");
         waitUtilElementToBeClickable(addToCartButton).click();
+        count++;
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertEquals(String.valueOf(count), indicatorBacket.getText());
         logger.info("Шаг для перехода на страницу корзины");
 
         return pageManager.getOzonProductPage();
@@ -74,7 +85,11 @@ public class OzonProductPage extends BasePage {
 
     @Step("Шаг для закрытия уведомления о cookie")
     public OzonProductPage cookies() {
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Assertions.assertTrue(closeCookies.isDisplayed(), "Кнопка закрытия cookie не отображается");
         waitUtilElementToBeVisible(closeCookies).click();
         logger.info("Шаг для закрытия уведомления о cookie");
@@ -87,8 +102,13 @@ public class OzonProductPage extends BasePage {
 
         Assertions.assertTrue(targetButton.isDisplayed(), "Товар не отображается в корзине");
         waitUtilElementToBeClickable(targetButton).click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assertions.assertEquals("0",indicatorBacket.getText());
         logger.info("Шаг для удаления товара из корзины");
-
         pageManager.getOzonProductPage();
     }
 }
