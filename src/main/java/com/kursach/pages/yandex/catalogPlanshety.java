@@ -1,7 +1,6 @@
 package com.kursach.pages.yandex;
 
 import com.kursach.pages.BasePage;
-import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -19,7 +18,7 @@ public class catalogPlanshety extends BasePage {
     private String secondProductName;
     private String secondProductPrice;
 
-    @FindBy(xpath = "//label[@data-auto='filter-list-item-153061' and contains(@class, '_3Mi7V')]//span[contains(text(), 'Samsung')]")
+    @FindBy(xpath = "//div[@data-filter-value-id='153061']//span[text()='Samsung']")
     private WebElement samsungCheckbox;
 
     @FindBy(xpath = "//button[@data-autotest-id='aprice' and contains(text(), 'подешевле')]")
@@ -40,10 +39,10 @@ public class catalogPlanshety extends BasePage {
     @FindBy(xpath = "<span class='_1ArMm'>30 581</span>")
     private WebElement actualPoductPrice;
 
-    @FindBy(xpath = "//*[@id='/content/page/fancyPage/cms/1/SearchTitleWithBreadcrumbs-SearchTitleWithBreadcrumbs']/div/div/div/h1")
+    @FindBy(xpath = "//h1[@data-auto='title']")
     private WebElement checkPageTables;
 
-    @FindBy(xpath = "//*[@id='/content/page/fancyPage/cms/3/QuickFiltersWrapper-QuickFiltersWrapper/quickFilters']/div/div/div/div[1]/div/button/span")
+    @FindBy(xpath = "//div[@data-zone-name='QuickFilterButton']//span")
     private WebElement filterTitle;
 
     public List<WebElement> getProducts() {

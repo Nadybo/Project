@@ -6,12 +6,19 @@ import com.kursach.managers.PageManager;
 import com.kursach.managers.TestPropManager;
 import com.kursach.utils.PropsConst;
 import io.qameta.allure.Allure;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,9 +42,9 @@ public class BaseTests4Lab3 {
         driverManager.getDriver().get(testPropManager.getProperty(PropsConst.YANDEX_URL));
     }
 
-
-//    @AfterEach
-//    public void tearDown() {
-//        InitManager.quitFramework();
+//
+//  @AfterEach
+//    public void takeScreenshot(TestInfo info) throws IOException {
+//      InitManager.quitFramework();
 //    }
 }

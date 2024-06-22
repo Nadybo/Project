@@ -5,19 +5,10 @@ import com.kursach.managers.InitManager;
 import com.kursach.managers.PageManager;
 import com.kursach.managers.TestPropManager;
 import com.kursach.utils.PropsConst;
-import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
+import org.junit.jupiter.api.TestInfo;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class BaseTests {
     private final DriverManager driverManager = DriverManager.getInstance();
@@ -36,8 +27,8 @@ public class BaseTests {
     }
 
 
-    @AfterEach
-    public void tearDown() {
-        InitManager.quitFramework();
-    }
+//    @AfterEach
+//    public void takeScreenshot(TestInfo info) throws IOException {
+//        InitManager.quitFramework();
+//    }
 }

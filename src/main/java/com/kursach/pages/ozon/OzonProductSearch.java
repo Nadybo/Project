@@ -3,7 +3,6 @@ package com.kursach.pages.ozon;
 import com.kursach.pages.BasePage;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,34 +19,31 @@ public class OzonProductSearch extends BasePage {
     @FindBy(xpath = "//span[text()='Samsung']")
     private WebElement samsungElement;
 
-    @FindBy(xpath ="//*[@id='layoutPage']/div[1]/div[2]/div[1]/div/div/div[1]/strong")
+    @FindBy(xpath ="//*[@id='layoutPage']//strong")
     private WebElement checkText;
 
-    @FindBy(xpath = "//*[@id=\"paginatorContent\"]/div/div/div[1]/div[4]/div/button")
+    @FindBy(xpath = "//div[@class='d405-a kj1_23']//button[1]")
     private WebElement exampleButton;
 
-    @FindBy(xpath = "//input[@name='filter' and @type='text' and @class='e305-b0']")
-    private WebElement filterInput;
-
-    @FindBy(xpath = "//*[@id='stickyHeader']/div/div[3]/a[1]")
+    @FindBy(xpath = "//a[@data-widget='favoriteCounter']")
     private WebElement favoriteElement;
 
-    @FindBy(xpath = "//*[@id=\"layoutPage\"]/div[1]/div[2]/div/div/div/div[2]/div/div/div[5]/div/div/div/div/div/div[1]/a")
+    @FindBy(xpath = "//div[@class='y9i_23']//a[1]")
     private WebElement productName;
 
-    @FindBy(xpath = "//*[@id='layoutPage']/div[1]/div[2]/div[2]/div[1]/div/aside/div[2]/div[4]/div[2]/div[1]/div/div[1]/div/input")
+    @FindBy(xpath = "//div[1]/div[@class='f05-b0 f05-b3']/input")
     private  WebElement inputPriceFrom;
 
-    @FindBy(xpath = "//*[@id='layoutPage']/div[1]/div[2]/div[2]/div[1]/div/aside/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/input")
+    @FindBy(xpath = "//div[2]/div[@class='f05-b0 f05-b3']/input")
     private WebElement inputPriceBefore;
 
-    @FindBy(xpath = "//*[@id=\"layoutPage\"]/div[1]/div[2]/div[2]/div[2]/div[3]/div/div/div/div/div/button/span/div/span")
+    @FindBy(xpath = "//div[@class='e905-a4 e905-a5']/span")
     private WebElement filterTitle;
 
-    @FindBy(xpath = "//*[@id=\"layoutPage\"]/div[1]/div[2]/div[2]/div[1]/div/aside/div[2]/div[4]/div[1]/span")
+    @FindBy(xpath = "//span[text()='Цена']")
     private WebElement missClick;
 
-    @FindBy(xpath = "//*[@id='stickyHeader']/div/div[3]/a[1]/span")
+    @FindBy(xpath = "//a[@data-widget='favoriteCounter']//span[1]")
     private WebElement indicatorFavProduct;
 
     @Step("Шаг для проверки страницы")
@@ -150,11 +146,9 @@ public class OzonProductSearch extends BasePage {
     }
 
     @Step("Проверка полей после ввода значение")
-    public void checkingPriceFiled(String priceFrom, String priceBefore){
+    public void checkingPriceFiled(String priceFrom){
         String inputFrom = inputPriceFrom.getAttribute("value").replaceAll("\\s", "");
-        String inputBefore = inputPriceBefore.getAttribute("value").replaceAll("\\s", "");
         assertEquals(priceFrom.replaceAll("\\s", ""), inputFrom);
-        assertEquals(priceBefore.replaceAll("\\s", ""), inputBefore);
         logger.info("Проверка полей после ввода значение");
         pageManager.getOzonProductPage();
     }

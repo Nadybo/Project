@@ -1,8 +1,6 @@
 package com.kursach.pages.ozon;
 
 import com.kursach.pages.BasePage;
-import com.kursach.pages.mospolytech.schedulePage;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;

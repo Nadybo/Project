@@ -30,22 +30,12 @@ public class OzonProductPage extends BasePage {
 
     @FindBy(xpath = "//div[@favorite-test-id='add-and-delete-item-in-favorites']/button[2]")
     private WebElement deleteBtn;
-    private List<WebElement> buttonList;
 
-    @FindBy(xpath = "//*[@id=\"layoutPage\"]/div[2]/div/div/div/button")
+    @FindBy(xpath = "//div[@data-widget='cookieBubble']//button")
     private WebElement closeCookies;
 
-    @FindBy(xpath = "//section[@data-widget='emptyState' and @class='ie2_10']")
-    private WebElement cheackFavoritBlock;
-
-    @FindBy(xpath = "//*[@id='stickyHeader']/div/div[3]/a[2]/span[1]")
+    @FindBy(xpath = "//div[@class='g6d_9']//a[2]//span[1]")
     private WebElement indicatorBacket;
-
-    @Step
-    public List<WebElement> getButtons() {
-        wait.until(ExpectedConditions.visibilityOfAllElements(buttonList));
-        return buttonList;
-    }
 
     @Step("Шаг для клика по второй кнопке на странице товара")
     public OzonProductPage clickSecondButton() {

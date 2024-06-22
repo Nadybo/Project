@@ -20,7 +20,7 @@ public class mospolytechHomePage extends BasePage {
     @FindBy(xpath = "//a[@class='user-nav__item-link'and@href='/obuchauschimsya/raspisaniya/']")
     private WebElement buttonShedule;
 
-    @FindBy(xpath = "//*[@id='bx_3777608605_2811']/div[3]/div/div[1]/a")
+    @FindBy(xpath = "//li[@id='bx_3777608605_2811']//a[@href='https://rasp.dmami.ru/']")
     private WebElement buttonLookAtWebsite;
 
     @Step("Шаг для выбора расписания")

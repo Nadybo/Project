@@ -5,7 +5,11 @@ import com.kursach.managers.InitManager;
 import com.kursach.managers.PageManager;
 import com.kursach.managers.TestPropManager;
 import com.kursach.utils.PropsConst;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
+import java.io.IOException;
+
 
 public class BaseTests4Lab4 {
 
@@ -26,7 +30,7 @@ public class BaseTests4Lab4 {
 
 
 //    @AfterEach
-//    public void tearDown() {
+//    public void takeScreenshot(TestInfo info) throws IOException {
 //        InitManager.quitFramework();
 //    }
 }
